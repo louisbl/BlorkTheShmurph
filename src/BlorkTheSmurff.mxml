@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:darkunicorn="crm.gobelins.darkunicorn.*"
+			   applicationDPI="160"
+			   frameRate="60"
+			   backgroundAlpha="0.0"
+			   addedToStage="_init()">
+	<fx:Declarations>
+		<!-- Placer ici les éléments non visuels (services et objets de valeur, par exemple). -->
+		<darkunicorn:DarkUnicornContext contextView="{this}" />
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import org.osflash.signals.Signal;
+			public var sound_toggle_signal : Signal = new Signal();
+			
+			protected function _init():void
+			{
+				//stage.addEventListener(Event.DEACTIVATE, deactivateHandler);
+			}
+			protected function deactivateHandler(event:Event):void
+			{
+				NativeApplication.nativeApplication.exit();
+			}
+		]]>
+	</fx:Script>
+	
+	<fx:Metadata>
+		[ResourceBundle("splash")]
+		[ResourceBundle("login")]
+		[ResourceBundle("home")]
+		[ResourceBundle("game")]
+		[ResourceBundle("end")]
+		[ResourceBundle("facebook")]
+	</fx:Metadata>
+</s:Application>
