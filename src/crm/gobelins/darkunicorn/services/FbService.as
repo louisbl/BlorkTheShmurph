@@ -10,10 +10,10 @@ package crm.gobelins.darkunicorn.services
 	import crm.gobelins.darkunicorn.signals.FbLoggedOutSignal;
 	import crm.gobelins.darkunicorn.signals.FbScoreSignal;
 	import crm.gobelins.darkunicorn.signals.GotoEndSignal;
-	import crm.gobelins.darkunicorn.signals.GotoScoreSignal;
+	import crm.gobelins.darkunicorn.vo.FbLoginVo;
+	import crm.gobelins.darkunicorn.vo.UserVo;
 	
 	import flash.events.StatusEvent;
-	import flash.net.NetworkInfo;
 	import flash.net.URLRequest;
 	
 	import mx.collections.ArrayCollection;

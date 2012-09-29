@@ -38,10 +38,12 @@ package crm.gobelins.darkunicorn.services
 		}
 		
 		public function fadeOutMusic() : void{
+			_musicChannel.removeEventListener(Event.SOUND_COMPLETE,_onSoundComplete);
 			TweenNano.to(_sTrans,1,{ volume : 0, onUpdate : _updateMusicSoundTrans} );
 		}
 		
 		public function fadeInMusic() : void{
+			playMusic();
 			TweenNano.to(_sTrans,1,{ volume : 1, onUpdate : _updateMusicSoundTrans} );
 		}
 		

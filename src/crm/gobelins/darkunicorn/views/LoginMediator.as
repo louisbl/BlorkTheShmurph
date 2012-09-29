@@ -2,10 +2,10 @@ package crm.gobelins.darkunicorn.views
 {
 	import com.facebook.graph.data.FacebookSession;
 	
-	import crm.gobelins.darkunicorn.services.FbLoginVo;
+	import crm.gobelins.darkunicorn.vo.FbLoginVo;
 	import crm.gobelins.darkunicorn.services.FbService;
 	import crm.gobelins.darkunicorn.services.ScoreService;
-	import crm.gobelins.darkunicorn.services.UserVo;
+	import crm.gobelins.darkunicorn.vo.UserVo;
 	import crm.gobelins.darkunicorn.signals.FbLoggedInSignal;
 	import crm.gobelins.darkunicorn.signals.FbLoggedOutSignal;
 	import crm.gobelins.darkunicorn.signals.GotoGameSignal;

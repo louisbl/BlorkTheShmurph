@@ -249,10 +249,13 @@
         <colorDepth>16bit</colorDepth>
         <manifestAdditions><![CDATA[
 			<manifest android:installLocation="auto">
+			    <uses-permission android:name="android.permission.INTERNET"/>
+			    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+			    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
 			    <!--See the Adobe AIR documentation for more information about setting Google Android permissions-->
 			    <!--La suppression de l’autorisation android.permission.INTERNET aura comme effet secondaire
 		de vous empêcher de déboguer l’application sur le périphérique.-->
-			    <uses-permission android:name="android.permission.INTERNET"/>
 			    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
 			    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE"/>-->
 			    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>-->
@@ -264,8 +267,6 @@
 			    <!--<uses-permission android:name="android.permission.RECORD_AUDIO"/>-->
 			    <!--Les autorisations ACCESS_NETWORK_STATE et ACCESS_WIFI_STATE doivent être
 		permutées afin d’utiliser les API NetworkInfo d’AIR.-->
-			    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>-->
-			    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>-->
 			</manifest>
 			
 		]]></manifestAdditions>

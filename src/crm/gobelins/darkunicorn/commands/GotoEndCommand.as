@@ -1,7 +1,7 @@
 package crm.gobelins.darkunicorn.commands
 {
 	import crm.gobelins.darkunicorn.vo.ChangeViewVo;
-	import crm.gobelins.darkunicorn.services.UserVo;
+	import crm.gobelins.darkunicorn.vo.UserVo;
 	import crm.gobelins.darkunicorn.signals.ChangeViewSignal;
 	import crm.gobelins.darkunicorn.views.EndView;
 	

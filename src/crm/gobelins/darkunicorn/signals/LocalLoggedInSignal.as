@@ -1,6 +1,6 @@
 package crm.gobelins.darkunicorn.signals
 {
-	import crm.gobelins.darkunicorn.services.UserVo;
+	import crm.gobelins.darkunicorn.vo.UserVo;
 	
 	import org.osflash.signals.Signal;
 	

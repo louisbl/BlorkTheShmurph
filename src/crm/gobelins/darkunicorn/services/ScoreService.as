@@ -13,6 +13,7 @@ package crm.gobelins.darkunicorn.services
 	
 	import spark.collections.SortField;
 	import spark.components.TextInput;
+	import crm.gobelins.darkunicorn.vo.UserVo;
 
 	public class ScoreService
 	{
@@ -157,7 +158,7 @@ package crm.gobelins.darkunicorn.services
 			if(_users && _users.length > 0 ){
 				for each (var user : Object in _users ) 
 				{
-					if( user.user_name == user_vo.user_name ){
+					if( user.user_name == vo.user_name ){
 						found = true;
 						break;
 					}

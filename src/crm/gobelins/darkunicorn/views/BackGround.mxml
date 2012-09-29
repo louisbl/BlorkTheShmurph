@@ -6,6 +6,6 @@
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	<s:fill>
-		<s:BitmapFill source="@Embed('medias/background.jpg')" fillMode="repeat" />
+		<s:BitmapFill source="@Embed('medias/interface/background.jpg')" fillMode="repeat" />
 	</s:fill>
 </s:Rect>

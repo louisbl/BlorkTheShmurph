@@ -17,7 +17,7 @@
 			
 			protected function _init():void
 			{
-				//stage.addEventListener(Event.DEACTIVATE, deactivateHandler);
+				stage.addEventListener(Event.DEACTIVATE, deactivateHandler);
 			}
 			protected function deactivateHandler(event:Event):void
 			{
@@ -38,7 +38,7 @@
 		@namespace s "library://ns.adobe.com/flex/spark";
 		@namespace darkunicorn "crm.gobelins.darkunicorn.*";
 		@font-face {
-			src:url("../medias/BD_Cartoon_Shout.ttf");
+			src:url("../medias/interface/BD_Cartoon_Shout.ttf");
 			fontFamily: cartoon;
 			embedAsCFF: true;
 		}
