@@ -23,16 +23,17 @@ package crm.gobelins.darkunicorn.services
 		{
 			_sTrans = new SoundTransform();
 			_sound = Sound(new ambiant()); 
-			_sound.addEventListener(Event.SOUND_COMPLETE,_onSoundComplete);
 		}
 		
 		protected function _onSoundComplete(event:Event):void
 		{
+			_musicChannel.removeEventListener(Event.SOUND_COMPLETE,_onSoundComplete);
 			playMusic();
 		}
 		
 		public function playMusic() : void{
 			_musicChannel = _sound.play();
+			_musicChannel.addEventListener(Event.SOUND_COMPLETE,_onSoundComplete);
 			_soundEnabled = true;
 		}
 		
