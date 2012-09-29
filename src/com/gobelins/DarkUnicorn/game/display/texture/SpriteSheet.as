@@ -1,8 +1,8 @@
 package com.gobelins.DarkUnicorn.game.display.texture {
+	import flash.display.Bitmap;
+	
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
-
-	import flash.display.Bitmap;
 
 	/**
 	 * @author Tony Beltramelli - www.tonybeltramelli.com
@@ -20,8 +20,16 @@ package com.gobelins.DarkUnicorn.game.display.texture {
 		[Embed(source = "../../../../../../../medias/texture.png")]
         public static const ParticleTexture:Class;
 		
+		[Embed(source = "../../../../../../../medias/background.jpg")]
+		public static const BackgroundImage:Class;
+		
 		private static var _gameTextureAtlas : TextureAtlas;
 
+		public static function getBg() : Texture {
+			var bmp : Bitmap = Bitmap( new BackgroundImage());
+			return Texture.fromBitmap(bmp);
+		}
+		
 		public static function getAtlas() : TextureAtlas
 		{
 			if (!_gameTextureAtlas)

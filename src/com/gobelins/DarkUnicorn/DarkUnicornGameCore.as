@@ -1,30 +1,30 @@
 package com.gobelins.DarkUnicorn {
-	import flash.events.DataEvent;
-	import flashx.textLayout.formats.TextAlign;
-
-	import net.hires.debug.Stats;
-
-	import starling.core.Starling;
-	import starling.events.Event;
-
 	import com.gobelins.DarkUnicorn.api.IGameCore;
 	import com.gobelins.DarkUnicorn.config.Config;
 	import com.gobelins.DarkUnicorn.game.stage.STAGE;
 	import com.greensock.TweenLite;
 	import com.tonybeltramelli.lib.text.TextStyle;
-
+	
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
+	import flash.events.DataEvent;
 	import flash.events.Event;
 	import flash.events.TimerEvent;
 	import flash.text.TextField;
 	import flash.utils.Timer;
+	
+	import flashx.textLayout.formats.TextAlign;
+	
+	import net.hires.debug.Stats;
+	
+	import starling.core.Starling;
+	import starling.events.Event;
 
 	[SWF(frameRate=60, width=800, height=600, backgroundColor=0xFFFFFF)]
 	public class DarkUnicornGameCore extends Sprite implements IGameCore {
 		private var _starling : Starling;
-		//private var _stats : Stats;
+		private var _stats : Stats;
 		private var _textFieldScore : TextField;
 		private var _textFieldTime : TextField;
 		private var _textFieldInfos : TextField;
@@ -95,9 +95,9 @@ package com.gobelins.DarkUnicorn {
 		private function _startGame() : void
 		{
 			resume();
-			//_stats = new Stats();
-			//_stats.y = 200;
-			//addChild(_stats);
+			_stats = new Stats();
+			_stats.y = 200;
+			addChild(_stats);
 
 			_textFieldScore = new TextField();
 			_textFieldScore.x = 5;
@@ -157,6 +157,7 @@ package com.gobelins.DarkUnicorn {
 			removeEventListener(flash.events.Event.REMOVED_FROM_STAGE, _clean);
 
 			(_starling.root as Main).clean();
+			(_starling.root as Main).dispose();
 		}
 
 		public function start() : void
@@ -187,8 +188,8 @@ package com.gobelins.DarkUnicorn {
 			_infosContainer = null;
 			_timer = null;
 			
-			//_starling.juggler.purge();
-			_starling.dispose();
+			_starling.juggler.purge();
+			//_starling.dispose();
 		}
 
 		private function _toSeconds(milliseconds : int) : String

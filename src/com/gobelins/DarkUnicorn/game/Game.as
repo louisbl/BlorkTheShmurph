@@ -10,6 +10,8 @@ package com.gobelins.DarkUnicorn.game {
 	import com.gobelins.DarkUnicorn.game.display.assets.enemy.EnemyAsset;
 	import com.gobelins.DarkUnicorn.game.stage.STAGE;
 	
+	import mx.states.AddChild;
+	
 	import nape.geom.Vec2;
 	import nape.phys.Body;
 	import nape.space.Space;
@@ -35,6 +37,8 @@ package com.gobelins.DarkUnicorn.game {
 		private var _isPaused : Boolean;
 		private var _gameArea : MapBuilder;
 		private var _background : Background;
+		private var _previousX : int;
+		private var _previousY : int;
 		
 		public function Game(assets : Vector.<IAsset>)
 		{
@@ -81,18 +85,28 @@ package com.gobelins.DarkUnicorn.game {
 			_container.addChildAt(_gameArea, 0);
 			
 			_background = new Background();
-			_container.addChildAt( _background, 0);
+			_mainContainer.addChildAt(_background, 0);
 
 			_actionManager = new ActionManager(_space, _hero);
 			_actionManager.init();
+
+			_previousX = 0;
+			_previousY = 0;
 
 			_isPaused = false;
 		}
 
 		public function update() : void
-		{
+		{			
 			_container.x = -_hero.body.position.x + STAGE.stageWidth / 2;
 			_container.y = -_hero.body.position.y + STAGE.stageHeight / 2;
+
+			//_background.setOffset(STAGE.stageWidth - Math.abs(_container.x),STAGE.stageHeight - Math.abs(_container.y));
+			_background.setOffset(0,_previousY);
+			
+			trace( _previousY );
+			
+			_previousY = (_hero.body.position.y - _previousY);
 			
 			if (_isPaused) return;
 

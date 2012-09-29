@@ -36,11 +36,15 @@
 			
 			protected function _onScoreClicked() : void{
 				blork.clean();
+				game.removeChild(blork);
+				blork = null;
 				finish_signal.dispatch(3900);
 			}
 			
 			protected function _onCancelClicked() : void{
 				blork.clean();
+				game.removeChild(blork);
+				blork = null;
 				btn_cancel_signal.dispatch();
 			}
 			public function pauseGame() : void {

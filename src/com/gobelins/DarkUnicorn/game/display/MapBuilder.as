@@ -1,10 +1,10 @@
 package com.gobelins.DarkUnicorn.game.display {
+	import com.gobelins.DarkUnicorn.game.core.entity.AEntity;
+	import com.gobelins.DarkUnicorn.game.display.texture.SpriteSheet;
+	
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.textures.RenderTexture;
-
-	import com.gobelins.DarkUnicorn.game.core.entity.AEntity;
-	import com.gobelins.DarkUnicorn.game.display.texture.SpriteSheet;
 
 	/**
 	 * @author Tony Beltramelli - www.tonybeltramelli.com
