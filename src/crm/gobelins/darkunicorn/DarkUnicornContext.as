@@ -1,5 +1,7 @@
 package crm.gobelins.darkunicorn
 {
+	import com.gobelins.DarkUnicorn.DarkUnicornGameCore;
+	
 	import crm.gobelins.darkunicorn.commands.ErrorCommand;
 	import crm.gobelins.darkunicorn.commands.GotoEndCommand;
 	import crm.gobelins.darkunicorn.commands.GotoFbCommand;
@@ -52,7 +54,11 @@ package crm.gobelins.darkunicorn
 			injector.mapSingleton(FbService);
 			injector.mapSingleton(ScoreService);
 			var soundManager : SoundManager = new SoundManager();
+			soundManager.playMusic();
 			injector.mapValue(SoundManager,soundManager);
+			
+			var blork : DarkUnicornGameCore = new DarkUnicornGameCore();
+			injector.mapValue(DarkUnicornGameCore, blork);
 			
 			signalCommandMap.mapSignalClass(ErrorSignal,ErrorCommand);
 			signalCommandMap.mapSignalClass(GotoSplashSignal,GotoSplashCommand);

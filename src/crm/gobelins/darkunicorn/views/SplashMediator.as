@@ -13,13 +13,9 @@ package crm.gobelins.darkunicorn.views
 		public var view : SplashView;
 		[Inject]
 		public var start_signal : GotoFbSignal;
-		[Inject]
-		public var sound_mgr : SoundManager;
 		
 		override public function onRegister():void {
 			view.btn_start_sig.addOnce(_onStartClicked);
-			
-			sound_mgr.playMusic();
 		}
 		
 		override public function onRemove():void{

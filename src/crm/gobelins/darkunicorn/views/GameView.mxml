@@ -12,6 +12,8 @@
 			
 			import spark.events.ViewNavigatorEvent;
 			
+			protected var blork : DarkUnicornGameCore;
+
 			public var finish_signal : Signal = new Signal(int);
 			public var btn_cancel_signal : Signal = new Signal();
 			public var paused_signal : Signal = new Signal();
@@ -20,7 +22,6 @@
 			protected var _loaded : Boolean;
 			protected var _started : Boolean;
 
-			protected var blork : DarkUnicornGameCore;
 			
 			protected function _onPausedClicked() : void {
 				currentState = "paused";
@@ -34,54 +35,32 @@
 				resume_signal.dispatch();
 			}
 			
-			protected function _onScoreClicked() : void{
+/* 			protected function _onScoreClicked() : void{
 				blork.clean();
 				game.removeChild(blork);
 				blork = null;
 				finish_signal.dispatch(3900);
-			}
+			} */
 			
 			protected function _onCancelClicked() : void{
-				blork.clean();
 				game.removeChild(blork);
-				blork = null;
+				//blork = null;
 				btn_cancel_signal.dispatch();
 			}
-			public function pauseGame() : void {
-				//(game_view.content as IGameCore).pause();
-			}
 			
-			public function resumeGame() : void {
-				//(game_view.content as IGameCore).resume();				
-			}
-			
-			public function restartGame() : void {
-				/*if( !_loaded ){
-					game_view.addEventListener(Event.COMPLETE,_onComplete);
-					game_view.load();
-				}else {
-					if(_started)
-						(game_view.content as IGameCore).clean();								
-					(game_view.content as IGameCore).start();								
-					_started = true;
-				}*/
+			public function restartGame(bl : DarkUnicornGameCore) : void {
+				blork = bl;
 				this.stage.frameRate = 60;
-				blork = new DarkUnicornGameCore();
+				//blork = new DarkUnicornGameCore();
 				blork.addEventListener(DataEvent.DATA,_onScore);
 				game.addChild( blork );
 			}
 			
-			protected function _onComplete(event:Event):void
-			{
-				//game_view.removeEventListener(Event.COMPLETE,_onComplete);
-				_loaded = true;
-			}
-			
 			protected function _onScore(event:DataEvent):void
 			{
-				blork.clean();
+				blork.removeEventListener(DataEvent.DATA,_onScore);
 				game.removeChild(blork);
-				blork = null;
+				//blork = null;
 				finish_signal.dispatch( parseInt(event.data) );
 			}
 			
@@ -117,8 +96,10 @@
 		<s:Button id="btn_cancel" click="_onCancelClicked()">
 			<s:label>{resourceManager.getString('game','cancel')}</s:label>
 		</s:Button>
+		<!--
 		<s:Button id="btn_score"  click="_onScoreClicked()">
 			<s:label>DEBUG score = 1200</s:label>
 		</s:Button>
+		-->
 	</s:Group>
 </views:AView>

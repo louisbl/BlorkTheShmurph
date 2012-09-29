@@ -1,5 +1,7 @@
 package crm.gobelins.darkunicorn.views
 {
+	import com.gobelins.DarkUnicorn.DarkUnicornGameCore;
+	
 	import crm.gobelins.darkunicorn.services.ScoreService;
 	import crm.gobelins.darkunicorn.services.SoundManager;
 	import crm.gobelins.darkunicorn.signals.GamePauseSignal;
@@ -25,6 +27,8 @@ package crm.gobelins.darkunicorn.views
 		public var restart_signal : GameRestartSignal;
 		[Inject]
 		public var sound_mgr : SoundManager;
+		[Inject]
+		public var blork : DarkUnicornGameCore;
 		
 		override public function onRegister():void{
 			view.finish_signal.add(_onFinish);
@@ -34,7 +38,7 @@ package crm.gobelins.darkunicorn.views
 			
 			sound_mgr.fadeOutMusic();
 			restart_signal.dispatch();
-			view.restartGame();
+			view.restartGame(blork);
 		}
 		
 		override public function onRemove():void{

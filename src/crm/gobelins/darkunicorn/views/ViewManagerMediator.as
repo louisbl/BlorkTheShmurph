@@ -1,17 +1,9 @@
 package crm.gobelins.darkunicorn.views
 {
-	import crm.gobelins.darkunicorn.vo.ChangeViewVo;
-	import crm.gobelins.darkunicorn.vo.UserVo;
 	import crm.gobelins.darkunicorn.signals.ChangeViewSignal;
-	import crm.gobelins.darkunicorn.signals.GotoEndSignal;
-	import crm.gobelins.darkunicorn.signals.GotoFbSignal;
-	import crm.gobelins.darkunicorn.signals.GotoGameSignal;
-	import crm.gobelins.darkunicorn.signals.GotoHomeSignal;
+	import crm.gobelins.darkunicorn.vo.ChangeViewVo;
 	
 	import org.robotlegs.mvcs.Mediator;
-	
-	import spark.components.View;
-	import spark.preloaders.SplashScreenImageSource;
 	
 	public class ViewManagerMediator extends Mediator
 	{

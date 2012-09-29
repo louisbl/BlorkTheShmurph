@@ -47,6 +47,8 @@ package com.gobelins.DarkUnicorn {
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 
 			_starling = new Starling(Main, stage);
+			
+			_starling.showStats = true;
 
 			STAGE = _starling.stage;
 			
@@ -57,8 +59,13 @@ package com.gobelins.DarkUnicorn {
 
 		private function _rootCreated(event : starling.events.Event) : void
 		{
-			pause();
+			startAGame();
 			_starling.removeEventListener(starling.events.Event.ROOT_CREATED, _rootCreated);
+		}
+		
+		public function startAGame() : void 
+		{
+			pause();
 
 			_time = 3;
 
@@ -194,6 +201,11 @@ package com.gobelins.DarkUnicorn {
 			_textFieldInfos = null;
 			_infosContainer = null;
 			_timer = null;
+			
+			_starling.juggler.purge();
+			_starling.context.clear();
+			_starling.context.present();
+			//_starling.dispose();
 		}
 
 		private function _toSeconds(milliseconds : int) : String
