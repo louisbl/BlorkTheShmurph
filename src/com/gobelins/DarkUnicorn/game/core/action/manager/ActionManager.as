@@ -34,7 +34,7 @@ package com.gobelins.DarkUnicorn.game.core.action.manager {
 
 			_action = new Action();
 			
-			//STAGE.addEventListener(TouchEvent.TOUCH, _tapHandler);
+			STAGE.addEventListener(TouchEvent.TOUCH, _tapHandler);
 		}
 
 		private function _tapHandler(event : TouchEvent) : void
@@ -102,9 +102,11 @@ package com.gobelins.DarkUnicorn.game.core.action.manager {
 
 		public function clean() : void
 		{
-			_keyHandler.removeEventListener(KeyEvent.KEY_MATCH, _keyMatch);
-			_keyHandler.clean();
-			_keyHandler = null;
+			if( _keyHandler ){
+				_keyHandler.removeEventListener(KeyEvent.KEY_MATCH, _keyMatch);
+				_keyHandler.clean();
+				_keyHandler = null;
+			}
 			
 			STAGE.removeEventListener(TouchEvent.TOUCH, _tapHandler); 
 		}

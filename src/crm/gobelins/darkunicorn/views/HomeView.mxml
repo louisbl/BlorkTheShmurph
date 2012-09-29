@@ -11,6 +11,7 @@
 			
 			public var btn_play_signal : Signal = new Signal();
 			public var btn_logout_signal : Signal = new Signal();
+			public var btn_hof_signal : Signal = new Signal();
 			
 			protected function btn_logout_clickHandler(event:MouseEvent):void
 			{
@@ -22,12 +23,17 @@
 				btn_play_signal.dispatch();
 			}
 			
+			protected function btn_halloffame_clickHandler(event:MouseEvent):void
+			{
+				btn_hof_signal.dispatch();
+			}
+			
 		]]>
 	</fx:Script>
-	
+<views:BackGround/>
 	<s:Group width="100%">
 		<s:layout>
-			<s:HorizontalLayout horizontalAlign="left" verticalAlign="top"/>
+			<s:VerticalLayout paddingLeft="10" paddingTop="10" horizontalAlign="left" verticalAlign="top"/>
 		</s:layout>	
 		<views:UserGroup data="{data}" /> 
 		<s:Button id="btn_logout" click="btn_logout_clickHandler(event)">
@@ -40,6 +46,9 @@
 		</s:layout>
 		<s:Button id="btn_play" click="btn_play_clickHandler(event)">
 			<s:label>{resourceManager.getString('home','play')}</s:label>
+		</s:Button>
+		<s:Button id="btn_halloffame" click="btn_halloffame_clickHandler(event)">
+			<s:label>{resourceManager.getString('end','hall_of_fame')}</s:label>
 		</s:Button>
 	</s:Group>
 </views:AView>

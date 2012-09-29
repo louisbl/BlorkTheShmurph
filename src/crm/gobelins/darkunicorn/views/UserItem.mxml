@@ -6,7 +6,7 @@
 					messageFunction="_formatScore"
 					iconField="user_picture"
 					iconWidth="50"
-					iconHeight="50" >
+					iconHeight="50">
 	<fx:Script>
 		<![CDATA[
 			protected function _formatScore( item : Object ) : String{

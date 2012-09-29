@@ -3,6 +3,7 @@
 			 xmlns:s="library://ns.adobe.com/flex/spark" xmlns:views="crm.gobelins.darkunicorn.views.*"
 			 addedToStage="_init()"
 			 exitState="_onExit()"
+			 backgroundAlpha="0.0"
 			 currentState="wait">
 	<fx:Script>
 		<![CDATA[
@@ -101,6 +102,7 @@
 		<s:State name="wait" />
 		<s:State name="wait_facebook" enterState="_onFacebookWait()" />
 	</views:states>
+	<views:BackGround/>
 		<s:Button id="btn_cancel" includeIn="wait_facebook" click="_onCancelClicked()">
 			<s:label>{resourceManager.getString('login','cancel')}</s:label>
 		</s:Button>
@@ -134,7 +136,7 @@
 			<s:label>{resourceManager.getString('login','local')}</s:label>
 		</s:Button>
 		<s:Label includeIn="local" text="{resourceManager.getString('login','set_nickname')}"/>
-		<s:TextInput id="nickname" includeIn="local" text="player"/>
+		<s:TextInput fontStyle="normal" id="nickname" includeIn="local" text="player"/>
 		<s:Button id="btn_nickname" includeIn="local"
 				  label="{resourceManager.getString('login','nickname')}"
 				  click="_onNickClicked()"/>

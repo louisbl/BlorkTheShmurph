@@ -65,7 +65,9 @@
 					(game_view.content as IGameCore).start();								
 					_started = true;
 				}*/
+				this.stage.frameRate = 60;
 				blork = new DarkUnicornGameCore();
+				blork.addEventListener(DataEvent.DATA,_onScore);
 				game.addChild( blork );
 			}
 			
@@ -73,6 +75,14 @@
 			{
 				//game_view.removeEventListener(Event.COMPLETE,_onComplete);
 				_loaded = true;
+			}
+			
+			protected function _onScore(event:DataEvent):void
+			{
+				blork.clean();
+				game.removeChild(blork);
+				blork = null;
+				finish_signal.dispatch( parseInt(event.data) );
 			}
 			
 		]]>
@@ -89,9 +99,14 @@
 	<!--
 	<s:SWFLoader id="game_view" source="game_core.swf" autoLoad="false"/>
 	-->
-	<s:Button id="pause" includeIn="playing" click="_onPausedClicked()">
-		<s:label>{resourceManager.getString('game','pause')}</s:label>
-	</s:Button>
+	<s:Group width="100%" height="100%">
+		<s:layout>
+			<s:VerticalLayout horizontalAlign="left" verticalAlign="bottom"/>
+		</s:layout>
+		<s:Button id="pause" includeIn="playing" click="_onPausedClicked()">
+			<s:label>{resourceManager.getString('game','pause')}</s:label>
+		</s:Button>
+	</s:Group>
 	<s:Group includeIn="paused" id="menu_pause" width="100%" height="100%">
 		<s:layout>
 			<s:VerticalLayout horizontalAlign="center" verticalAlign="middle"/>

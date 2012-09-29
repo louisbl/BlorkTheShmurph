@@ -2,6 +2,7 @@ package crm.gobelins.darkunicorn.services
 {
 	import com.greensock.TweenNano;
 	
+	import flash.events.Event;
 	import flash.media.Sound;
 	import flash.media.SoundChannel;
 	import flash.media.SoundMixer;
@@ -10,6 +11,9 @@ package crm.gobelins.darkunicorn.services
 
 	public class SoundManager
 	{
+		[Embed(source="../../../../../medias/sounds/ambiantLoop.mp3")]
+		public var ambiant : Class;
+		
 		protected var _sTrans : SoundTransform;
 		protected var _sound : Sound;
 		protected var _musicChannel : SoundChannel;
@@ -18,7 +22,13 @@ package crm.gobelins.darkunicorn.services
 		public function SoundManager()
 		{
 			_sTrans = new SoundTransform();
-			_sound = new Sound(new URLRequest("assets/music.mp3")); 
+			_sound = Sound(new ambiant()); 
+			_sound.addEventListener(Event.SOUND_COMPLETE,_onSoundComplete);
+		}
+		
+		protected function _onSoundComplete(event:Event):void
+		{
+			playMusic();
 		}
 		
 		public function playMusic() : void{

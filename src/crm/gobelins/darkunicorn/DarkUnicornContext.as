@@ -77,7 +77,7 @@ package crm.gobelins.darkunicorn
 			
 			var vm : ViewManager = new ViewManager();
 			vm.firstView = AView;
-			(contextView as BlorkTheSmurff).addElementAt( vm, 0 );
+			(contextView as BlorkTheSmurff).addElement( vm );
 			//(contextView as DarkUnicorn).setElementIndex((contextView as DarkUnicorn).game_view,0);
 			
 			mediatorMap.mapView(BlorkTheSmurff,BlorkTheShmurphMediator);

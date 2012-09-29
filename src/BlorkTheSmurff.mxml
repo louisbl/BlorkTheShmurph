@@ -2,8 +2,8 @@
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark"
 			   xmlns:darkunicorn="crm.gobelins.darkunicorn.*"
-			   applicationDPI="160"
-			   frameRate="60"
+			   applicationDPI="240"
+			   frameRate="30"
 			   backgroundAlpha="0.0"
 			   addedToStage="_init()">
 	<fx:Declarations>
@@ -34,4 +34,33 @@
 		[ResourceBundle("end")]
 		[ResourceBundle("facebook")]
 	</fx:Metadata>
+	<fx:Style>
+		@namespace s "library://ns.adobe.com/flex/spark";
+		@namespace darkunicorn "crm.gobelins.darkunicorn.*";
+		@font-face {
+			src:url("../medias/BD_Cartoon_Shout.ttf");
+			fontFamily: cartoon;
+			embedAsCFF: true;
+		}
+		s|Application {
+			fontFamily: cartoon;
+			fontStyle:normal;
+			color: white;
+		}
+		s|Button {
+			fontFamily: Arial, Helvetica, "_sans";
+			fontStyle:normal;
+			color: black;
+		}
+		s|TextInput{
+			fontFamily: Arial, Helvetica, "_sans";
+			fontStyle:normal;
+			color: grey;
+		}
+		s|IconItemRenderer{
+			fontFamily: Arial, Helvetica, "_sans";
+			fontStyle:normal;
+			color: black;
+		}
+	</fx:Style>
 </s:Application>

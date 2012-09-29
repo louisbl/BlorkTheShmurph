@@ -1,26 +1,24 @@
 package com.gobelins.DarkUnicorn.game {
-	import com.gobelins.DarkUnicorn.GameEvent;
-	import com.gobelins.DarkUnicorn.game.core.action.manager.ActionManager;
-	import com.gobelins.DarkUnicorn.game.core.display.AAsset;
-	import com.gobelins.DarkUnicorn.game.core.display.IAsset;
-	import com.gobelins.DarkUnicorn.game.display.Background;
-	import com.gobelins.DarkUnicorn.game.display.MapBuilder;
-	import com.gobelins.DarkUnicorn.game.display.assets.HeroAsset;
-	import com.gobelins.DarkUnicorn.game.display.assets.coin.CoinAsset;
-	import com.gobelins.DarkUnicorn.game.display.assets.enemy.EnemyAsset;
-	import com.gobelins.DarkUnicorn.game.stage.STAGE;
-	
-	import mx.states.AddChild;
-	
+	import com.gobelins.DarkUnicorn.game.medias.Medias;
 	import nape.geom.Vec2;
 	import nape.phys.Body;
 	import nape.space.Space;
-	
+
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
 	import starling.display.MovieClip;
 	import starling.display.Sprite;
 	import starling.events.EventDispatcher;
+
+	import com.gobelins.DarkUnicorn.GameEvent;
+	import com.gobelins.DarkUnicorn.game.core.action.manager.ActionManager;
+	import com.gobelins.DarkUnicorn.game.core.display.AAsset;
+	import com.gobelins.DarkUnicorn.game.core.display.IAsset;
+	import com.gobelins.DarkUnicorn.game.display.MapBuilder;
+	import com.gobelins.DarkUnicorn.game.display.assets.HeroAsset;
+	import com.gobelins.DarkUnicorn.game.display.assets.coin.CoinAsset;
+	import com.gobelins.DarkUnicorn.game.display.assets.enemy.EnemyAsset;
+	import com.gobelins.DarkUnicorn.game.stage.STAGE;
 
 	/**
 	 * @author Tony Beltramelli - www.tonybeltramelli.com
@@ -35,10 +33,6 @@ package com.gobelins.DarkUnicorn.game {
 		private var _mainContainer : Sprite;
 		private var _container : Sprite;
 		private var _isPaused : Boolean;
-		private var _gameArea : MapBuilder;
-		private var _background : Background;
-		private var _previousX : int;
-		private var _previousY : int;
 		
 		public function Game(assets : Vector.<IAsset>)
 		{
@@ -52,7 +46,7 @@ package com.gobelins.DarkUnicorn.game {
 			_container = new Sprite();
 			_mainContainer.addChild(_container);
 
-			_gameArea = new MapBuilder();
+			var background : MapBuilder = new MapBuilder();
 
 			const L : int = assets.length;
 			while ( --L != -1 )
@@ -61,8 +55,7 @@ package com.gobelins.DarkUnicorn.game {
 				assetBody.space = _space;
 				if (assetBody.graphic)
 				{
-					if (AAsset(_assets[L]).movieClip) 
-						Starling.juggler.add(AAsset(_assets[L]).movieClip);
+					if (AAsset(_assets[L]).movieClip) Starling.juggler.add(AAsset(_assets[L]).movieClip);
 					if (AAsset(_assets[L]).isHero)
 					{
 						assetBody.graphicUpdate = _updateGraphicHero;
@@ -72,7 +65,7 @@ package com.gobelins.DarkUnicorn.game {
 					}
 					_container.addChild(assetBody.graphic);
 				} else {
-					_gameArea.draw(AAsset(_assets[L]).entity);
+					background.draw(AAsset(_assets[L]).entity);
 				}
 
 				if (AAsset(_assets[L]).isHero || AAsset(_assets[L]).isMap)
@@ -81,32 +74,19 @@ package com.gobelins.DarkUnicorn.game {
 				}
 			}
 
-			_gameArea.flatten();
-			_container.addChildAt(_gameArea, 0);
-			
-			_background = new Background();
-			_mainContainer.addChildAt(_background, 0);
+			background.flatten();
+			_container.addChildAt(background, 0);
 
 			_actionManager = new ActionManager(_space, _hero);
 			_actionManager.init();
-
-			_previousX = 0;
-			_previousY = 0;
 
 			_isPaused = false;
 		}
 
 		public function update() : void
-		{			
+		{
 			_container.x = -_hero.body.position.x + STAGE.stageWidth / 2;
 			_container.y = -_hero.body.position.y + STAGE.stageHeight / 2;
-
-			//_background.setOffset(STAGE.stageWidth - Math.abs(_container.x),STAGE.stageHeight - Math.abs(_container.y));
-			_background.setOffset(0,_previousY);
-			
-			trace( _previousY );
-			
-			_previousY = (_hero.body.position.y - _previousY);
 			
 			if (_isPaused) return;
 
@@ -202,9 +182,6 @@ package com.gobelins.DarkUnicorn.game {
 
 		public function clean() : void
 		{
-			_gameArea.dispose();
-			_container.dispose();
-			_mainContainer.dispose();
 			_actionManager.clean();
 		}
 

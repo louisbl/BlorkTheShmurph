@@ -50,8 +50,18 @@ package crm.gobelins.darkunicorn.services
 			logged_in_signal = new LocalLoggedInSignal();
 			_so = SharedObject.getLocal("score_darkunicorn");
 			_users = _so.data.users;
-			if( !_users )
-				_users = [];			
+			if( !_users ) {
+				_users = [];
+				var blork : UserVo;
+				blork = new UserVo();
+				blork.score = 85;
+				blork.user_name = "The Blork";
+				_storeNewUser(blork);
+				blork = new UserVo();
+				blork.score = 65;
+				blork.user_name = "The Shmurph";
+				_storeNewUser(blork);
+			}
 		}
 		
 		public function setUser( nickname : String ) : void {
@@ -77,7 +87,20 @@ package crm.gobelins.darkunicorn.services
 				end_sig.dispatch(user_vo);
 			}
 			user_vo.score = _best_score;
+			_setScoreInUsers(user_vo);
 			_so.data.users = _users;
+		}
+		
+		protected function _setScoreInUsers(vo:UserVo):void
+		{
+			if(_users && _users.length > 0 ){
+				for each (var user : Object in _users ) 
+				{
+					if( user.user_name == vo.user_name ){
+						user.score = vo.score;
+					}
+				}
+			}
 		}
 		
 		public function getAllScores():void
