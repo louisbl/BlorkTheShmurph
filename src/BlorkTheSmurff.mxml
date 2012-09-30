@@ -17,7 +17,7 @@
 			
 			protected function _init():void
 			{
-				//stage.addEventListener(Event.DEACTIVATE, deactivateHandler);
+				stage.addEventListener(Event.DEACTIVATE, deactivateHandler);
 			}
 			protected function deactivateHandler(event:Event):void
 			{
