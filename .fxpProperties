@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fxpProperties abbreviated="false" authoringTool="Flex Builder" compiles="true" parentProject="62fb3dbf-f219-4928-b77b-3ef6d9bec4af" projectUUID="62fb3dbf-f219-4928-b77b-3ef6d9bec4af" pureCatalystProject="false" sdkVersion="4.6.0" uuid="2f0be71d-9e11-4824-9618-e83acb2f5714" version="15">
+  <projects/>
+  <src>
+    <linked isMain="false" location="locale/{locale}" path="locale/{locale}" position="0" uuid="2f0be71d-9e11-4824-9618-e83acb2f5714"/>
+    <linked isMain="false" location="libz" path="libz" position="1" uuid="2f0be71d-9e11-4824-9618-e83acb2f5714"/>
+  </src>
+  <swc>
+    <linked location="sdkPlaceHolder" path="sdkPlaceHolder" position="0" uuid="2f0be71d-9e11-4824-9618-e83acb2f5714"/>
+    <linked location="D:/louis/BlorkTheSmurff/libs" path="/libs" position="1" uuid="2f0be71d-9e11-4824-9618-e83acb2f5714"/>
+  </swc>
+  <misc/>
+  <theme/>
+  <mxmlFormattingPrefs groupAttributesByState="true" maxLineWidth="100" mxmlAlignAttributes="true" mxmlAttributeOrder="id,userLabel,includeIn,excludeFrom,visible,x,y,z,left,right,top,bottom,width,height,minWidth,minHeight,maxWidth,maxHeight,label" mxmlKeepAttributeValuesOrganized="true"/>
+</fxpProperties>
