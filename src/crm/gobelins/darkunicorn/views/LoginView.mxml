@@ -4,7 +4,7 @@
 			 addedToStage="_init()"
 			 exitState="_onExit()"
 			 backgroundAlpha="0.0"
-			 currentState="wait">
+			 currentState="wait" xmlns:components="crm.gobelins.darkunicorn.views.components.*">
 	<fx:Script>
 		<![CDATA[
 			import com.facebook.graph.data.FacebookSession;
@@ -102,7 +102,7 @@
 		<s:State name="wait" />
 		<s:State name="wait_facebook" enterState="_onFacebookWait()" />
 	</views:states>
-	<views:BackGround/>
+	<components:BackGround/>
 		<s:Button id="btn_cancel" includeIn="wait_facebook" click="_onCancelClicked()">
 			<s:label>{resourceManager.getString('login','cancel')}</s:label>
 		</s:Button>
@@ -118,7 +118,7 @@
 			<s:label>{resourceManager.getString('login','login')}</s:label>
 		</s:Button>
 		
-		<views:UserGroup includeIn="logged_in" data="{data}"/>
+		<components:UserGroup includeIn="logged_in" data="{data}"/>
 		<s:Group includeIn="logged_in">
 			<s:layout>
 				<s:HorizontalLayout horizontalAlign="center" verticalAlign="middle"/>

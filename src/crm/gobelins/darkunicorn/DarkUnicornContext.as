@@ -27,7 +27,7 @@ package crm.gobelins.darkunicorn
 	import crm.gobelins.darkunicorn.views.EndView;
 	import crm.gobelins.darkunicorn.views.GameMediator;
 	import crm.gobelins.darkunicorn.views.GameView;
-	import crm.gobelins.darkunicorn.views.GotoSplashSignal;
+	import crm.gobelins.darkunicorn.signals.GotoSplashSignal;
 	import crm.gobelins.darkunicorn.views.HomeMediator;
 	import crm.gobelins.darkunicorn.views.HomeView;
 	import crm.gobelins.darkunicorn.views.LoginMediator;

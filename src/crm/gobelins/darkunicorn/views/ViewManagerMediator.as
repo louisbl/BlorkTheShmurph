@@ -4,6 +4,7 @@ package crm.gobelins.darkunicorn.views
 	import crm.gobelins.darkunicorn.vo.ChangeViewVo;
 	
 	import org.robotlegs.mvcs.Mediator;
+	import crm.gobelins.darkunicorn.signals.GotoSplashSignal;
 	
 	public class ViewManagerMediator extends Mediator
 	{

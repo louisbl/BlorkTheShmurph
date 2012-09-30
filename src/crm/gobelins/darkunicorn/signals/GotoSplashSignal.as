@@ -1,4 +1,4 @@
-package crm.gobelins.darkunicorn.views
+package crm.gobelins.darkunicorn.signals
 {
 	import org.osflash.signals.Signal;
 	

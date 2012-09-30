@@ -3,7 +3,7 @@
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		xmlns:views="crm.gobelins.darkunicorn.views.*"
 		title="HomeView" xmlns:signals="org.osflash.signals.*"
-		backgroundAlpha="0.0">
+		backgroundAlpha="0.0" xmlns:components="crm.gobelins.darkunicorn.views.components.*">
 	
 	<fx:Script>
 		<![CDATA[
@@ -30,12 +30,12 @@
 			
 		]]>
 	</fx:Script>
-<views:BackGround/>
+<components:BackGround/>
 	<s:Group width="100%">
 		<s:layout>
 			<s:VerticalLayout paddingLeft="10" paddingTop="10" horizontalAlign="left" verticalAlign="top"/>
 		</s:layout>	
-		<views:UserGroup data="{data}" /> 
+		<components:UserGroup data="{data}" /> 
 		<s:Button id="btn_logout" click="btn_logout_clickHandler(event)">
 			<s:label>{resourceManager.getString('login','logout')}</s:label>
 		</s:Button>
